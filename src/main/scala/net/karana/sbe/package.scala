@@ -1,10 +1,22 @@
-
+/*
+ * Copyright year author
+ */
 package net.karana
+import java.io.File
+import scala.xml.Node
 
 package object sbe {
 
-  type Traversable[+A] = scala.collection.immutable.Traversable[A]
-  type Iterable[+A]    = scala.collection.immutable.Iterable[A]
-  type Seq[+A]         = scala.collection.immutable.Seq[A]
-  type IndexedSeq[+A]  = scala.collection.immutable.IndexedSeq[A]
+  def getFieldByName(x: Node, name: String) = {
+    val fields = (x \ "field")
+    fields.filter { f =>
+      attribute(f, "name") == Some(name)
+    }.headOption match {
+      case Some(field) => field
+      case None =>
+        null
+    }
+  }
+  def attribute(n: Node, name: String) = n.attribute(name).map(_.toString)
+  def eol                              = System.lineSeparator()
 }

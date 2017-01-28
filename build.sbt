@@ -9,6 +9,7 @@ lazy val sbe =
     .settings(settings)
     .settings(
       libraryDependencies ++= Seq(
+        "org.scala-lang.modules" % "scala-xml_2.11" % "1.0.6",
         library.scalaCheck % Test,
         library.scalaTest  % Test
       )
@@ -40,8 +41,8 @@ lazy val settings =
 
 lazy val commonSettings =
   Seq(
-    scalaVersion := "2.12.1",
-    crossScalaVersions := Seq(scalaVersion.value, "2.11.8"),
+    scalaVersion := "2.11.8",
+    //crossScalaVersions := Seq(scalaVersion.value, "2.11.8"),
     organization := "net.karana",
     scalacOptions ++= Seq(
       "-unchecked",
