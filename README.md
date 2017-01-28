@@ -1,6 +1,10 @@
-# sbe #
+# scala-sbe #
 
-Welcome to sbe!
+Welcome to scala-sbe!
+
+This is hack for parseing a SBE temple into a set of scala types that can be marshalled and unmarshalled
+
+It uses https://github.com/csar/Scala-Unsigned to deal with the unsigned types.
 
 ## Contribution policy ##
 
